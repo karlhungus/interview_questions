@@ -71,4 +71,18 @@ public class InterviewQuestions {
      * eg input="()()((()))" output = 5, ")(" = 0
      */
 
+    /**
+     * Given a tree print out each row in normal than reverse order
+     * eg input tree
+     *      1
+     *    2   3
+     *  4  5 6  7
+     *  8  9
+     *  output
+     *  1
+     *  3,2
+     *  4,5,6,7
+     *  9,8
+     */
+
 }
