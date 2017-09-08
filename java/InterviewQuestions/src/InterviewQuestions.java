@@ -34,6 +34,9 @@ public class InterviewQuestions {
         }
     }
 
+    /**
+     * This wasn't my solution in the interview -- i did something recursive!??
+     */
     public List<int[]> findPairsAddingToSum(int[] input, int sum) {
         //Find all pairs of numbers in an array that add up to sum
         //e.g. input = [8, -1, 2, 6, 5], sum = 7 output = [[8, -1], [2, 5]]
@@ -50,6 +53,7 @@ public class InterviewQuestions {
         return output;
     }
 
+    //TODO: (other questions i've gotten and answered but i haven't done them again)
     /**
      * Question
      * Magic Squares -- implement the odd magic square algo
