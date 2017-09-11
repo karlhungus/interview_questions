@@ -85,5 +85,23 @@ class InterviewQuestionsTest {
         assertTrue(node.isBST());
     }
 
+    /**
+     *   100
+     *   50  200
+     * 25 75
+     *   74 78
+     *
+     */
+    @Test
+    public void bstWithFailureOnUpperBoundCheck(){
+        Node node = new Node(100);
+        node.left = new Node( 50);
+        node.right = new Node(200);
+        node.left.left = new Node(25);
+        node.left.right = new Node(75);
+        node.left.right.left = new Node(74);
+        node.left.right.right = new Node(78);
 
+        assertTrue(node.isBST());
+    }
 }
