@@ -52,5 +52,38 @@ class InterviewQuestionsTest {
         assertEquals(832040, questions.fibImp(30));
     }
 
+    @Test
+    public void bstSimpleTest() {
+        Node node = new Node(1);
+        assertTrue(node.isBST());
+    }
+
+    @Test
+    public void bstSimpleFailureTest() {
+        Node node = new Node(8);
+        node.left = new Node(9);
+        assertFalse(node.isBST());
+    }
+
+    @Test
+    public void bstBoundedFailureTest() {
+        Node node = new Node(8);
+        node.left = new Node( 5);
+        node.right = new Node(10);
+        node.left.left = new Node(1);
+        node.left.right = new Node(9); // > 8, means invalid
+        assertFalse(node.isBST());
+    }
+
+    @Test
+    public void bstWithSomeDepthTest() {
+        Node node = new Node(8);
+        node.left = new Node( 5);
+        node.right = new Node(10);
+        node.left.left = new Node(1);
+        node.left.right = new Node(7);
+        assertTrue(node.isBST());
+    }
+
 
 }
