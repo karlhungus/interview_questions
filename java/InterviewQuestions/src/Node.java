@@ -9,24 +9,24 @@ public class Node implements Comparable<Node> {
     }
 
     public boolean isBST() {
-        return isBST(this, null, null);
+        return isBST(null, null);
     }
 
-    private boolean isBST(Node node, Integer lowerBound, Integer upperBound) {
-        if(node == null){
+    private boolean isBST(Integer lowerBound, Integer upperBound) {
+        if(left == null && right == null){
             return true;
         }
         else {
-            if((node.left != null && node.left.compareTo(node) == 1) ||
-                    (node.right != null && node.right.compareTo(node) == -1)){
+            if((left != null && compareTo(left) == -1) ||
+                    (right != null && compareTo(right) == 1)){
                 return false;
             }
-            if((node.left != null && lowerBound != null && node.left.item < lowerBound) ||
-                    (node.right != null && upperBound != null && node.right.item > upperBound)) {
+            if((left != null && lowerBound != null && left.item < lowerBound) ||
+                    (right != null && upperBound != null && right.item > upperBound)) {
                 return false;
             }
-            return isBST(node.left, lowerBound, item) &&
-                    isBST(node.right, item, upperBound);
+            return (left != null && left.isBST(lowerBound, item)) &&
+                    (right != null && right.isBST(item, upperBound));
         }
     }
 

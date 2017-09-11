@@ -89,7 +89,7 @@ class InterviewQuestionsTest {
      *   100
      *   50  200
      * 25 75
-     *   74 78
+     *   76 78
      *
      */
     @Test
@@ -99,9 +99,9 @@ class InterviewQuestionsTest {
         node.right = new Node(200);
         node.left.left = new Node(25);
         node.left.right = new Node(75);
-        node.left.right.left = new Node(74);
+        node.left.right.left = new Node(76); // greater than lowest bound
         node.left.right.right = new Node(78);
 
-        assertTrue(node.isBST());
+        assertFalse(node.isBST());
     }
 }
