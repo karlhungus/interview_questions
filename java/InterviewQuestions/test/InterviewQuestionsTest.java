@@ -89,8 +89,8 @@ class InterviewQuestionsTest {
      *   100
      *   50  200
      * 25 75
-     *   74 101
-     *       ^ this should be less than 100
+     *   76 99
+     *    ^ this should be < 75 and > 50
      */
     @Test
     public void bstWithFailureOnUpperBoundCheck(){
@@ -99,9 +99,14 @@ class InterviewQuestionsTest {
         node.right = new Node(200);
         node.left.left = new Node(25);
         node.left.right = new Node(75);
-        node.left.right.left = new Node(76); // greater than lowest bound
-        node.left.right.right = new Node(78);
+        node.left.right.right = new Node(99);
 
+        Node test = node.left.right.left = new Node(76); // greater than lowest bound
         assertFalse(node.isBST());
+        test.item = 49;
+        assertFalse(node.isBST());
+        test.item = 51;
+        assertTrue(node.isBST());
+
     }
 }
