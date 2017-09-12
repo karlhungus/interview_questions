@@ -89,8 +89,8 @@ class InterviewQuestionsTest {
      *   100
      *   50  200
      * 25 75
-     *   76 78
-     *
+     *   74 101
+     *       ^ this should be less than 100
      */
     @Test
     public void bstWithFailureOnUpperBoundCheck(){
