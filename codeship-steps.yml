@@ -1,0 +1,6 @@
+- name: ruby
+  service: ruby
+  command: bundle exec rake
+- name: java
+  service: java
+  command: mvn clean test

@@ -1,0 +1,10 @@
+java:
+  build:
+    image: javaimg
+    context: java/InterviewQuestions/
+    dockerfile: Dockerfile
+ruby:
+  build:
+    image: rubyimg
+    context: ruby/
+    dockerfile: Dockerfile
