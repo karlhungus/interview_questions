@@ -84,4 +84,31 @@ public class InterviewQuestions {
      *  4,5,7,6
      *  9,8
      */
+
+
+    /**
+     *  Find what's wrong with this snippit, what is a fix
+     */
+    public int foo(byte x, byte y, byte z) {
+        int result = 0;
+        for (byte i = x; i < y; i += z) {
+            result += i;
+        }
+        return result;
+    }
+
+    public int fooFixed(byte x, byte y, byte z) {
+        int result = 0;
+        int count = 0;
+        for (byte i = x; i < y; i += z) {
+            count += 1;
+
+            System.out.println(result);
+            if(count >= 256){
+                return result;
+            }
+            result += i;
+        }
+        return result;
+    }
 }
