@@ -9,11 +9,3 @@ before_install:
 script:
   - bundle install
   - bundle exec rake
-
-language: java
-os: linux
-jdk: oraclejdk8
-before_script:
- - cd java
-script:
-  - mvn clean test
