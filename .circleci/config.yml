@@ -10,7 +10,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/repo
+    working_directory: ~/ruby/
 
     steps:
       - checkout
@@ -18,19 +18,19 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          - v1-dependencies-{{ checksum "./ruby/Gemfile.lock" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
       - run:
           name: install dependencies
           command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            bundle install --jobs=4 --retry=3 --gemfile ./ruby/Gemfile --path ruby/vendor/bundle
 
       - save_cache:
           paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - .ruby/vendor/bundle
+          key: v1-dependencies-{{ checksum "./ruby/Gemfile.lock" }}
 
       # Database setup
       #- run: bundle exec rake db:create
@@ -41,13 +41,10 @@ jobs:
           name: run tests
           command: |
             mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "ruby/**/*_test.rb" | circleci tests split --split-by=timings)"
-
-            bundle exec rspec --format progress \
-                            --format MiniTestJunitFormatter \
-                            --out /tmp/test-results/minitest.xml \
-                            --format progress \
-                            "${TEST_FILES}"
+            TEST_FILES="$(circleci tests glob "./ruby/**/*_test.rb" | circleci tests split --split-by=timings)"
+            cd ruby
+            bundle exec rake
+            cd ..
 
       # collect reports
       - store_test_results:
