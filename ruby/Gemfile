@@ -7,4 +7,5 @@ group :development, :test do
   gem "mocha"
   gem "rake"
   gem "rubocop"
+  gem "minitest-ci"
 end
