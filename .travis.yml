@@ -1,0 +1,19 @@
+
+language: ruby
+os: linux
+before_script:
+  - cd ruby
+before_install:
+  - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+  - gem install bundler
+script:
+  - bundle install
+  - bundle exec rake
+
+language: java
+os: linux
+jdk: oraclejdk8
+before_script:
+ - cd java
+script:
+  - mvn clean test

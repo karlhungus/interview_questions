@@ -4,7 +4,6 @@ source "https://rubygems.org"
 
 group :development, :test do
   gem "minitest"
-  gem "minitest-ci"
   gem "mocha"
   gem "rake"
   gem "rubocop"
