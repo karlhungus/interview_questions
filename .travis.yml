@@ -11,6 +11,7 @@ before_install:
 script:
   - bundle install
   - bundle exec rake
+    cd ..
   - cd java/InterviewQuestions
   - docker build -t javaimg:latest .
   - docker run javaimg
