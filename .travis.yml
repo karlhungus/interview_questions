@@ -1,6 +1,8 @@
 
 language: ruby
 os: linux
+services:
+  - docker
 before_script:
   - cd ruby
 before_install:
@@ -9,3 +11,6 @@ before_install:
 script:
   - bundle install
   - bundle exec rake
+  - cd java/InterviewQuestions
+  - docker build -t javaimg:latest .
+  - docker run javaimg
