@@ -17,4 +17,4 @@ RUN bundle install --system
 ADD . /usr/src/app
 
 WORKDIR /usr/src/app/
-CMD ["ruby", "palindrome_client.rb", "-x", "-v"]
+CMD ["bundle", "exec", "rake"]
