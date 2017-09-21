@@ -61,12 +61,6 @@ public class InterviewQuestions {
 
     /**
      * Question
-     * In a string like "111001110111" find runs of size X
-     * eg. input="111001111000", size=3, output = 4 (the 1111 ones are worth 2)
-     */
-
-    /**
-     * Question
      * Count matching braces open braces must come before closing braces
      * eg input="()()((()))" output = 5, ")(" = 0
      */
