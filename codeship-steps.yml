@@ -4,3 +4,6 @@
 - name: java
   service: java
   command: mvn clean test
+- name: golang
+  service: golang
+  command: go test

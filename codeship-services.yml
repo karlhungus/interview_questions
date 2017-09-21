@@ -8,3 +8,8 @@ ruby:
     image: rubyimg
     context: ruby/
     dockerfile: Dockerfile
+golang:
+  build:
+    image: goimg
+    context: go/
+    dockerfile: Dockerfile
