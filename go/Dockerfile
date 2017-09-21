@@ -1,13 +1,13 @@
-FROM go:1.9
+FROM golang:1.9
 
 RUN apt-get update && apt-get install -y \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir /app
+WORKDIR /app
 
-ADD . /usr/src/app
+ADD . /app
 
-WORKDIR /usr/src/app/
-CMD ["ruby", "palindrome_client.rb", "-x", "-v"]
+WORKDIR /app/
+CMD ["go", "test"]
