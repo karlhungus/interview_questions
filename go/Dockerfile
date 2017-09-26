@@ -4,10 +4,10 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /app
-WORKDIR /app
 
-ADD . /app
+ADD . /go
+WORKDIR /go
 
-WORKDIR /app/
-CMD ["go", "test", "./..."]
+RUN ["go", "get", "./..."]
+RUN ["go", "build", "./src/github.com/karlhungus/..."]
+CMD ["go", "test", "./src/github.com/karlhungus/..."]
