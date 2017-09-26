@@ -6,4 +6,4 @@
   command: mvn clean test
 - name: golang
   service: golang
-  command: go test
+  command: go test ./...
