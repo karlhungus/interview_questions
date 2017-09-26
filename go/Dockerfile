@@ -10,4 +10,4 @@ WORKDIR /app
 ADD . /app
 
 WORKDIR /app/
-CMD ["go", "test"]
+CMD ["go", "test", "./..."]

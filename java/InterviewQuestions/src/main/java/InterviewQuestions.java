@@ -97,7 +97,6 @@ public class InterviewQuestions {
         for (byte i = x; i < y; i += z) {
             count += 1;
 
-            System.out.println(result);
             if(count >= 256){
                 return result;
             }
