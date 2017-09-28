@@ -60,12 +60,6 @@ public class InterviewQuestions {
      */
 
     /**
-     * Question
-     * Count matching braces open braces must come before closing braces
-     * eg input="()()((()))" output = 5, ")(" = 0
-     */
-
-    /**
      * Given a tree print out each row in normal than reverse order
      * eg input tree
      *      1
