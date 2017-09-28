@@ -7,11 +7,11 @@ type NodeExecuter func(node Node, depth int)
 
 func main() {
 	tree := Tree{&Node{Value: 5, Left: &Node{Value: 4}, Right: &Node{Value: 6}}}
-	output := printTree(&tree)
+	output := printTreeFlipping(&tree)
 	fmt.Printf("Tree: \n%t\n", output)
 }
 
-func printTree(tree *Tree) string {
+func printTreeRegular(tree *Tree) string {
 	printArray := make([][]int, 0)
 	breadthTraversal(tree, func(node Node, depth int) {
 		if len(printArray) <= depth {
@@ -27,6 +27,39 @@ func printTree(tree *Tree) string {
 				output += fmt.Sprintf("%v,", value)
 			} else {
 				output += fmt.Sprintf("%v", value)
+			}
+		}
+		output += fmt.Sprintf("\n")
+	}
+	return output
+}
+
+func printTreeFlipping(tree *Tree) string {
+	printArray := make([][]int, 0)
+	breadthTraversal(tree, func(node Node, depth int) {
+		if len(printArray) <= depth {
+			printArray = append(printArray, make([]int, 0))
+		}
+		printArray[depth] = append(printArray[depth], node.Value)
+	})
+
+	output := ""
+	for depth, array := range printArray {
+		if depth%2 == 0 {
+			for i := len(array) - 1; i >= 0; i-- {
+				if i > 0 {
+					output += fmt.Sprintf("%v,", array[i])
+				} else {
+					output += fmt.Sprintf("%v", array[i])
+				}
+			}
+		} else {
+			for i, value := range array {
+				if i < len(array)-1 {
+					output += fmt.Sprintf("%v,", value)
+				} else {
+					output += fmt.Sprintf("%v", value)
+				}
 			}
 		}
 		output += fmt.Sprintf("\n")
