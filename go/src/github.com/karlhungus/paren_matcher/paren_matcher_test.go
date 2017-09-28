@@ -2,13 +2,13 @@ package main
 
 import "testing"
 
-func TestBraceMatcher(t *testing.T) {
-	match := braceMatcher("(())")
+func TestParenMatcher(t *testing.T) {
+	match := parenMatcher("(())")
 	if match != true {
 		t.Error("Expected true, for string (()) got ", match)
 	}
 
-	match = braceMatcher(")(")
+	match = parenMatcher(")(")
 	if match != false {
 		t.Error("Expected false, for string (()) got ", match)
 	}

@@ -17,7 +17,7 @@ func main() {
 		return
 	}
 
-	balenced := braceMatcher(os.Args[1])
+	balenced := parenMatcher(os.Args[1])
 	fmt.Printf("Balenced: %t\n", balenced)
 }
 
@@ -25,8 +25,10 @@ func main() {
 * Question
 * Count matching braces open braces must come before closing braces
 * eg input="()()((()))" output = 5, ")(" = 0
+*
+* I think the question here was really "do the parens balence out - ('s must come first"
  */
-func braceMatcher(input string) bool {
+func parenMatcher(input string) bool {
 	stack := stack.New()
 	for _, char := range input {
 		if char == '(' {
