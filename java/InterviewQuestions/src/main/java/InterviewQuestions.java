@@ -59,20 +59,6 @@ public class InterviewQuestions {
      * Magic Squares -- implement the odd magic square algo
      */
 
-    /**
-     * Given a tree print out each row in normal than reverse order
-     * eg input tree
-     *      1
-     *    2   3
-     *  4  5 7  6
-     *  8  9
-     *  output
-     *  1
-     *  3,2
-     *  4,5,7,6
-     *  9,8
-     */
-
 
     /**
      *  Find what's wrong with this snippit, what is a fix

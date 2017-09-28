@@ -34,6 +34,19 @@ func printTreeRegular(tree *Tree) string {
 	return output
 }
 
+/**
+* Given a tree print out each row in normal than reverse order
+* eg input tree
+*      1
+*    2   3
+*  4  5 7  6
+*  8  9
+*  output
+*  1
+*  3,2
+*  4,5,7,6
+*  9,8
+ */
 func printTreeFlipping(tree *Tree) string {
 	printArray := make([][]int, 0)
 	breadthTraversal(tree, func(node Node, depth int) {
@@ -45,7 +58,7 @@ func printTreeFlipping(tree *Tree) string {
 
 	output := ""
 	for depth, array := range printArray {
-		if depth%2 == 0 {
+		if depth%2 == 1 {
 			for i := len(array) - 1; i >= 0; i-- {
 				if i > 0 {
 					output += fmt.Sprintf("%v,", array[i])

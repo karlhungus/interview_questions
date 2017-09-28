@@ -22,7 +22,7 @@ func TestTreePrinter(t *testing.T) {
 	}
 
 	output = printTreeFlipping(&tree)
-	expected = "5\n2,8\n9,6,3,1\n"
+	expected = "5\n8,2\n1,3,6,9\n"
 	if output != expected {
 		t.Error("Expected:\n %v for tree got %v", expected, output)
 	}
