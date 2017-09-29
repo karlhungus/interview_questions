@@ -1,6 +1,5 @@
 package main
 
-//import "os"
 import "fmt"
 
 type NodeExecuter func(node Node, depth int)
