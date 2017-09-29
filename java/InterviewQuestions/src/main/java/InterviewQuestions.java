@@ -53,13 +53,6 @@ public class InterviewQuestions {
         return output;
     }
 
-    //TODO: (other questions i've gotten and answered but i haven't done them again)
-    /**
-     * Question
-     * Magic Squares -- implement the odd magic square algo
-     */
-
-
     /**
      *  Find what's wrong with this snippit, what is a fix
      */
