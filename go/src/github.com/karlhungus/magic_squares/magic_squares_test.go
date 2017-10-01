@@ -3,10 +3,12 @@ package main
 import "testing"
 
 func TestMagicSquare(t *testing.T) {
-	row1 := []int{8, 1, 6}
-	row2 := []int{3, 5, 7}
-	row3 := []int{4, 9, 2}
-	expected := [][]int{row1, row2, row3}
+	expected := [][]int{
+		[]int{8, 1, 6},
+		[]int{3, 5, 7},
+		[]int{4, 9, 2},
+	}
+
 	result := magicSquare(3)
 
 	if len(result) != 3 {
