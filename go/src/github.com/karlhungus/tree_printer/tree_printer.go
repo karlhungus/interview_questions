@@ -79,8 +79,7 @@ func printTreeFlipping(tree *Tree) string {
 	return output
 }
 
-func breadthTraversal(tree *Tree, executor NodeExecuter) string {
-	output := ""
+func breadthTraversal(tree *Tree, executor NodeExecuter) {
 	queue := make([]*Node, 0)
 	set := make(map[*Node]int)
 
@@ -105,5 +104,4 @@ func breadthTraversal(tree *Tree, executor NodeExecuter) string {
 			}
 		}
 	}
-	return output
 }
