@@ -13,12 +13,13 @@ classifications of problems I've solved, and at least by memory how I'd solved t
 
 ## Technical Meeting Types
 
-So far I've run into about 5 types:
+So far I've run into these types (or combinations):
 
 1. Live coding interview - Typically easy problems, most of the problems in this repo are from these interviews
 2. Whiteboard - These can range from implment a sort, to design a system
 3. Exercise you submit - Assumes normal tools availablity (google/stackoverflow)
-4. Some combination of the above
 5. Nothing at all - Only ever when someone knows you
+6. Pairing - pair with a coder who works for the company
+7. Code Review - Given a pr, review the code, find issues
 
 
