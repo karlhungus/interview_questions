@@ -1,11 +1,17 @@
 package main
 
 func longestPalindrome(s string) string {
-	sp := s
-	if len(s)%2 == 0 {
-		//it's even we need to make it odd
-		sp = makeOdd(s)
+	if len(s) == 1 {
+		return s
+	} else if len(s) == 2 && s[0] != s[1] {
+		return string(s[0])
+
 	}
+	sp := s
+	//if len(s) %2 == 0 {
+	//it's even we need to make it odd
+	sp = pad(s)
+	//}
 	palrad := make(map[int]int, len(sp))
 	//storage := map[int]string
 	//var cap []rune
@@ -23,15 +29,25 @@ func longestPalindrome(s string) string {
 			max = v
 		}
 	}
-	fmt.Printf("maxpos:%d, max:%d, s:%s", maxpos, max, s)
-	return s[maxpos-max : maxpos+max+1]
+
+	return unpad(sp[maxpos-max : maxpos+max+1])
 }
 
-func makeOdd(s string) string {
+func pad(s string) string {
 	col := []byte("|")
 	for i := 0; i < len(s); i++ {
 		col = append(col, s[i])
 		col = append(col, '|')
+	}
+	return string(col)
+}
+
+func unpad(s string) string {
+	col := []byte("")
+	for i := 0; i < len(s); i++ {
+		if s[i] != '|' {
+			col = append(col, s[i])
+		}
 	}
 	return string(col)
 }
