@@ -9,16 +9,12 @@ func longestPalindrome(s string) string {
 	}
 	sp := pad(s)
 
-	palrad := make(map[int]int, len(sp))
-	for center := 0; center < len(sp); center++ {
-		var rad int
-		for center-(rad+1) >= 0 && center+(rad+1) < len(sp) && sp[center-(rad+1)] == sp[center+(rad+1)] {
-			rad++
-		}
-		palrad[center] = rad
+	palrads := make(map[int]int, len(sp))
+	for center, _ := range sp {
+		palrads[center] = palrad(center, sp)
 	}
 	var maxpos, max int
-	for k, v := range palrad {
+	for k, v := range palrads {
 		if v > max {
 			maxpos = k
 			max = v
@@ -44,4 +40,14 @@ func unpad(s string) string {
 		}
 	}
 	return string(col)
+}
+
+func palrad(center int, sp string) int {
+	var rad int
+	for center-(rad+1) >= 0 &&
+		center+(rad+1) < len(sp) &&
+		sp[center-(rad+1)] == sp[center+(rad+1)] {
+		rad++
+	}
+	return rad
 }
