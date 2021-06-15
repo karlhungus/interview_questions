@@ -7,14 +7,9 @@ func longestPalindrome(s string) string {
 		return string(s[0])
 
 	}
-	sp := s
-	//if len(s) %2 == 0 {
-	//it's even we need to make it odd
-	sp = pad(s)
-	//}
+	sp := pad(s)
+
 	palrad := make(map[int]int, len(sp))
-	//storage := map[int]string
-	//var cap []rune
 	for center := 0; center < len(sp); center++ {
 		var rad int
 		for center-(rad+1) >= 0 && center+(rad+1) < len(sp) && sp[center-(rad+1)] == sp[center+(rad+1)] {
@@ -29,7 +24,6 @@ func longestPalindrome(s string) string {
 			max = v
 		}
 	}
-
 	return unpad(sp[maxpos-max : maxpos+max+1])
 }
 
