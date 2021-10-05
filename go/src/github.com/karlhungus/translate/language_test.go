@@ -49,3 +49,25 @@ func TestWildCardListOfLanguages(t *testing.T) {
 		t.Errorf("mismatch (-want +got):\n%s", diff)
 	}
 }
+
+func TestWithPriority(t *testing.T) {
+	//function("en-US;q=1, en-CA;q=0, *;q=0.5", ["en-US", "en-CA", "fr-FR", "gr-GR"]) should return ["en-US", "fr-Fr", "gr-GR", "en-CA"
+	got := languagesPriority(PriorityPairs{
+		PriorityPair{
+			language: "en-US",
+			priority: 1,
+		},
+		PriorityPair{
+			language: "en-CA",
+			priority: 0.5,
+		},
+		PriorityPair{
+			language: "*",
+			priority: 0,
+		},
+	}, []string{"en-US", "en-CA", "fr-FR", "gr-GR"})
+	want := []string{"en-US", "en-CA", "fr-FR", "gr-GR"}
+	if diff := cmp.Diff(got, want); diff != "" {
+		t.Errorf("mismatch (-want +got):\n%s", diff)
+	}
+}
