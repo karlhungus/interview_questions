@@ -24,9 +24,18 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-func TestListOfLangugaes(t *testing.T) {
+func TestExactMatchListOfLangugaes(t *testing.T) {
 	got := languages([]string{"en-US", "en-GB", "fr-FR"}, []string{"en-US", "fr-FR"})
 	want := []string{"en-US", "fr-FR"}
+	if diff := cmp.Diff(got, want); diff != "" {
+		t.Errorf("mismatch (-want +got):\n%s", diff)
+	}
+}
+
+func TestListOfLanguages(t *testing.T) {
+	//function("en-US, en", ["en-GR", "en-US", "en-CA", "fr-FR") should return ["en-US", "en-GR", "en-CA"] since "en" catches leftover matches of en
+	got := languages([]string{"en-US", "en"}, []string{"en-GR", "en-US", "en-CA", "fr-FR"})
+	want := []string{"en-US", "en-GR", "en-CA"}
 	if diff := cmp.Diff(got, want); diff != "" {
 		t.Errorf("mismatch (-want +got):\n%s", diff)
 	}
