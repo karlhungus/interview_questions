@@ -32,10 +32,19 @@ func TestExactMatchListOfLangugaes(t *testing.T) {
 	}
 }
 
-func TestListOfLanguages(t *testing.T) {
+func TestPrefixListOfLanguages(t *testing.T) {
 	//function("en-US, en", ["en-GR", "en-US", "en-CA", "fr-FR") should return ["en-US", "en-GR", "en-CA"] since "en" catches leftover matches of en
 	got := languages([]string{"en-US", "en"}, []string{"en-GR", "en-US", "en-CA", "fr-FR"})
 	want := []string{"en-US", "en-GR", "en-CA"}
+	if diff := cmp.Diff(got, want); diff != "" {
+		t.Errorf("mismatch (-want +got):\n%s", diff)
+	}
+}
+
+func TestWildCardListOfLanguages(t *testing.T) {
+	//function("en-US, en", ["en-GR", "en-US", "en-CA", "fr-FR") should return ["en-US", "en-GR", "en-CA"] since "en" catches leftover matches of en
+	got := languages([]string{"en-US", "*"}, []string{"en-GR", "en-US", "en-CA", "fr-FR"})
+	want := []string{"en-US", "en-GR", "en-CA", "fr-FR"}
 	if diff := cmp.Diff(got, want); diff != "" {
 		t.Errorf("mismatch (-want +got):\n%s", diff)
 	}

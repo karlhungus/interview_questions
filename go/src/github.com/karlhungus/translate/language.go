@@ -14,6 +14,9 @@ func languages(requested []string, supported []string) []string {
 			} else if strings.HasPrefix(s, r) && !ok {
 				set[s] = struct{}{}
 				results = append(results, s)
+			} else if r == "*" && !ok {
+				set[s] = struct{}{}
+				results = append(results, s)
 			}
 		}
 	}
