@@ -1,6 +1,6 @@
 package translate
 
-/*Stripe phone screen
+/* phone screen
 4 part question, building on the result of the previous
 
 given input of string of requested languages and the output of supported languages,
